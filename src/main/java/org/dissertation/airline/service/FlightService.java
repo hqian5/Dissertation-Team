@@ -29,4 +29,8 @@ public class FlightService {
     public Object getAvailableSeats(int flightId) {
         return flightDao.getAvailableSeats(flightId);
     }
+
+    public Object getFlightById(String flightId) {
+        return flightDao.getFlightById(flightId);
+    }
 }

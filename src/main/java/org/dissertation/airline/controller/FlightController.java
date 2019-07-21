@@ -25,6 +25,13 @@ public class FlightController {
         return flightService.getFlight(departureDate, airportDeparture, airportDestination);
     }
 
+    @RequestMapping(value = "/getFlightById", method = GET)
+    public Object getFlightById(
+            @RequestParam(value = "flightId") String flightId)
+    {
+        return flightService.getFlightById(flightId);
+    }
+
     @RequestMapping(value = "/getSeatById", method = GET)
     public Object getSeatBySeatId(
             @RequestParam(value = "flightId") int flightId,

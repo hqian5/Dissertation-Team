@@ -40,7 +40,7 @@ public class FlightDao {
                             "and airport_departure = ? " +
                             "and airport_destination = ?",
                     new Object[]{new java.sql.Date(dt.getTime()),
-                    airportDeparture, airportDestination},
+                            airportDeparture, airportDestination},
                     mapper);
         } catch (ParseException e) {
             Throwables.propagate(e);
@@ -65,5 +65,15 @@ public class FlightDao {
         return template.query("select * from seat where flight_id = ? and booked = ?",
                 new Object[]{flightId, 0},
                 seatMapper);
+    }
+
+    public Object getFlightById(String flightId) {
+        return template.query(
+                "select flight_id, name, airport_departure, " +
+                        "airport_destination, departure_date, departure_time, " +
+                        "destination_date, destination_time, price, description  from flight" +
+                        " where flight_id = ? ",
+                new Object[]{flightId},
+                mapper);
     }
 }

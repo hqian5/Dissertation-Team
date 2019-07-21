@@ -1,4 +1,5 @@
-CREATE TABLE `booking` (
+create database `airline`;
+CREATE TABLE `airline`.`booking` (
   `booking_id` int(11) NOT NULL AUTO_INCREMENT,
   `passenger_id` int(11) DEFAULT NULL,
   `flight_id` int(11) DEFAULT NULL,
@@ -11,7 +12,7 @@ CREATE TABLE `booking` (
   UNIQUE KEY `flight_id` (`flight_id`,`passenger_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `flight` (
+CREATE TABLE `airline`.`flight` (
   `flight_id` int(11) NOT NULL,
   `name` varchar(64) DEFAULT NULL,
   `airport_departure` int(11) DEFAULT NULL,
@@ -25,7 +26,7 @@ CREATE TABLE `flight` (
   PRIMARY KEY (`flight_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `seat` (
+CREATE TABLE `airline`.`seat` (
   `seat_id` int(11) NOT NULL,
   `flight_id` int(11) NOT NULL,
   `location_x` int(11) DEFAULT NULL,
@@ -33,4 +34,4 @@ CREATE TABLE `seat` (
   `level` int(11) DEFAULT NULL,
   `booked` int(11) DEFAULT '0',
   PRIMARY KEY (`flight_id`,`seat_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
