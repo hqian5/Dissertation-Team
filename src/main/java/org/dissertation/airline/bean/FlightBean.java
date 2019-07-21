@@ -1,19 +1,21 @@
 package org.dissertation.airline.bean;
 
 public class FlightBean {
-    private int FlightId;
+    private Integer FlightId;
     private String name;
-    private int airportDeparture;
-    private int airportDestination;
-    private String departureStartTime;
-    private int flightDurationMinute;
+    private Integer airportDeparture;
+    private Integer airportDestination;
+    private String departureDate;
+    private String departureTime;
+    private String destinationDate;
+    private String destinationTime;
     private String description;
 
-    public int getFlightId() {
+    public Integer getFlightId() {
         return FlightId;
     }
 
-    public void setFlightId(int flightId) {
+    public void setFlightId(Integer flightId) {
         FlightId = flightId;
     }
 
@@ -25,36 +27,52 @@ public class FlightBean {
         this.name = name;
     }
 
-    public int getAirportDeparture() {
+    public Integer getAirportDeparture() {
         return airportDeparture;
     }
 
-    public void setAirportDeparture(int airportDeparture) {
+    public void setAirportDeparture(Integer airportDeparture) {
         this.airportDeparture = airportDeparture;
     }
 
-    public int getAirportDestination() {
+    public Integer getAirportDestination() {
         return airportDestination;
     }
 
-    public void setAirportDestination(int airportDestination) {
+    public void setAirportDestination(Integer airportDestination) {
         this.airportDestination = airportDestination;
     }
 
-    public String getDepartureStartTime() {
-        return departureStartTime;
+    public String getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDepartureStartTime(String departureStartTime) {
-        this.departureStartTime = departureStartTime;
+    public void setDepartureDate(String departureDate) {
+        this.departureDate = departureDate;
     }
 
-    public int getFlightDurationMinute() {
-        return flightDurationMinute;
+    public String getDepartureTime() {
+        return departureTime;
     }
 
-    public void setFlightDurationMinute(int flightDurationMinute) {
-        this.flightDurationMinute = flightDurationMinute;
+    public void setDepartureTime(String departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public String getDestinationDate() {
+        return destinationDate;
+    }
+
+    public void setDestinationDate(String destinationDate) {
+        this.destinationDate = destinationDate;
+    }
+
+    public String getDestinationTime() {
+        return destinationTime;
+    }
+
+    public void setDestinationTime(String destinationTime) {
+        this.destinationTime = destinationTime;
     }
 
     public String getDescription() {

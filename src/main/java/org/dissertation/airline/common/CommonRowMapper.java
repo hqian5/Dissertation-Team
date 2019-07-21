@@ -35,9 +35,9 @@ public class CommonRowMapper<T> implements RowMapper<T> {
 
     private void set(Method writeMethod, T entity, ResultSet resultSet, String column) throws SQLException, InvocationTargetException, IllegalAccessException {
         Class clz = writeMethod.getParameters()[0].getType();
-        if (clz == int.class){
+        if (clz == int.class || clz == Integer.class){
             writeMethod.invoke(entity, resultSet.getInt(column));
-        } else if (clz == long.class) {
+        } else if (clz == long.class || clz == Long.class) {
             writeMethod.invoke(entity, resultSet.getLong(column));
         } else if (clz == String.class) {
             writeMethod.invoke(entity, resultSet.getString(column));

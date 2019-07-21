@@ -1,70 +1,61 @@
 package org.dissertation.airline.bean;
 
 public class BookingBean {
-    private int bookingId;
-    private int passengerId;
-    private int flightId;
-    private int seatId;
-    private int paymentId;
-    private int discountId;
-    private String departureDate;
+    private Integer bookingId;
+    private Integer passengerId;
+    private Integer flightId;
+    private Integer seatId;
+    private Integer paymentId;
+    private Integer discountId;
     private String createTime;
     private String updateTime;
 
-    public int getBookingId() {
+    public Integer getBookingId() {
         return bookingId;
     }
 
-    public void setBookingId(int bookingId) {
+    public void setBookingId(Integer bookingId) {
         this.bookingId = bookingId;
     }
 
-    public int getPassengerId() {
+    public Integer getPassengerId() {
         return passengerId;
     }
 
-    public void setPassengerId(int passengerId) {
+    public void setPassengerId(Integer passengerId) {
         this.passengerId = passengerId;
     }
 
-    public int getFlightId() {
+    public Integer getFlightId() {
         return flightId;
     }
 
-    public void setFlightId(int flightId) {
+    public void setFlightId(Integer flightId) {
         this.flightId = flightId;
     }
 
-    public int getSeatId() {
+    public Integer getSeatId() {
         return seatId;
     }
 
-    public void setSeatId(int seatId) {
+    public void setSeatId(Integer seatId) {
         this.seatId = seatId;
     }
 
-    public int getPaymentId() {
+    public Integer getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(int paymentId) {
+    public void setPaymentId(Integer paymentId) {
         this.paymentId = paymentId;
     }
 
-    public int getDiscountId() {
+    public Integer getDiscountId() {
         return discountId;
     }
 
-    public void setDiscountId(int discountId) {
+    public void setDiscountId(Integer discountId) {
         this.discountId = discountId;
-    }
-
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
     }
 
     public String getCreateTime() {
