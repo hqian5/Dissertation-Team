@@ -2,8 +2,8 @@ package org.dissertation.airline.service;
 
 import com.google.common.collect.ImmutableMap;
 import org.dissertation.airline.bean.BookingBean;
-import org.dissertation.airline.dao.BookingDao;
-import org.dissertation.airline.dao.FlightDao;
+import org.dissertation.airline.mapper.BookingMapper;
+import org.dissertation.airline.mapper.FlightMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,15 +16,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @Service
 public class BookingService {
     @Autowired
-    private BookingDao bookingDao;
+    private BookingMapper bookingMapper;
 
     @Autowired
-    private FlightDao flightDao;
-
+    private FlightMapper flightMapper;
 
     public List<BookingBean> getBookingByPassengerId(int passengerId) {
         checkNotNull(passengerId);
-        return bookingDao.getBookingByPassengerId(passengerId);
+        return bookingMapper.getBookingByPassengerId(passengerId);
     }
 
     @Transactional
@@ -33,12 +32,14 @@ public class BookingService {
         checkNotNull(booking.getFlightId());
         checkNotNull(booking.getPassengerId());
         checkNotNull(booking.getSeatId());
-        Map<String, Integer> returnVal = ImmutableMap.of("bookingId", bookingDao.addBooking(booking));
-        flightDao.bookSeat(booking.getFlightId(), booking.getSeatId());
+        bookingMapper.addBooking(booking);
+        int bookingId = booking.getBookingId();
+        Map<String, Integer> returnVal = ImmutableMap.of("bookingId", bookingId);
+        flightMapper.bookSeat(booking.getFlightId(), booking.getSeatId());
         return returnVal;
     }
 
     public List<BookingBean> getBookingById(int bookingId) {
-        return bookingDao.getBookingById(bookingId);
+        return bookingMapper.getBookingById(bookingId);
     }
 }
