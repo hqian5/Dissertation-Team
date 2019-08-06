@@ -20,11 +20,6 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @RequestMapping(value = "/getBookingByPassengerId", method = GET)
-    public Object getBookingByPassengerId(@RequestParam(value = "passengerId") int passengerId) {
-        return bookingService.getBookingByPassengerId(passengerId);
-    }
-
     @RequestMapping(value = "/getBookingById", method = GET)
     public Object getBookingById(@RequestParam(value = "bookingId") int bookingId) {
         return bookingService.getBookingById(bookingId);

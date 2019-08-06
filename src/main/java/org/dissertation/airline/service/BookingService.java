@@ -21,21 +21,17 @@ public class BookingService {
     @Autowired
     private FlightMapper flightMapper;
 
-    public List<BookingBean> getBookingByPassengerId(int passengerId) {
-        checkNotNull(passengerId);
-        return bookingMapper.getBookingByPassengerId(passengerId);
-    }
 
     @Transactional
     public Map<String, Integer> newBooking(BookingBean booking) {
         checkNotNull(booking);
         checkNotNull(booking.getFlightId());
         checkNotNull(booking.getPassengerId());
-        checkNotNull(booking.getSeatId());
+        checkNotNull(booking.getSeatNumber());
         bookingMapper.addBooking(booking);
         int bookingId = booking.getBookingId();
         Map<String, Integer> returnVal = ImmutableMap.of("bookingId", bookingId);
-        flightMapper.bookSeat(booking.getFlightId(), booking.getSeatId());
+        flightMapper.bookSeat(booking.getFlightId(), booking.getSeatNumber());
         return returnVal;
     }
 

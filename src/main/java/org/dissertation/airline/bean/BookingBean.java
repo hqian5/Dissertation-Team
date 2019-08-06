@@ -4,7 +4,7 @@ public class BookingBean {
     private Integer bookingId;
     private Integer passengerId;
     private Integer flightId;
-    private Integer seatId;
+    private Integer seatNumber;
     private Integer paymentId;
     private Integer discountId;
     private String createTime;
@@ -34,12 +34,12 @@ public class BookingBean {
         this.flightId = flightId;
     }
 
-    public Integer getSeatId() {
-        return seatId;
+    public Integer getSeatNumber() {
+        return seatNumber;
     }
 
-    public void setSeatId(Integer seatId) {
-        this.seatId = seatId;
+    public void setSeatNumber(Integer seatNumber) {
+        this.seatNumber = seatNumber;
     }
 
     public Integer getPaymentId() {

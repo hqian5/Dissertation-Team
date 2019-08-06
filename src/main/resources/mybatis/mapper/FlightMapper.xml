@@ -1,35 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.dissertation.airline.mapper.FlightMapper">
-
-
-    <select id="getFlight"  resultType="FlightBean">
-        select flight_id, name, airport_departure,
-        airport_destination, departure_date, departure_time,
-        destination_date, destination_time, price, description  from flight
-        where departure_date = #{departureDate}
-        and airport_departure = #{airportDeparture}
-        and airport_destination = #{airportDestination}
-	</select>
-
-
-    <select id="getSeatById"  resultType="SeatBean">
-        select seat_id, flight_id, location_x, location_y,  level, booked
-        from seat where flight_id = #{flightId} and seat_id = #{seatId}
+    <select id="getFlightById"  resultType="FlightBean">
+        select * from flight
+        where flightid = #{flightid}
 	</select>
 
     <update id="bookSeat">
-        update seat set booked = 1 where flight_id = #{flightId} and seat_id = #{seatId}
+        update flight set seat_free = 1
+        where flightid = #{flightId}
+        and seat_number = #{seatNumber}
     </update>
-
-    <select id="getAvailableSeats"  resultType="SeatBean">
-        select * from seat where flight_id = #{flightId} and booked = 0
-	</select>
-
-    <select id="getFlightById"  resultType="FlightBean">
-        select flight_id, name, airport_departure,
-        airport_destination, departure_date, departure_time,
-        destination_date, destination_time, price, description  from flight
-        where flight_id = #{flightId}
-	</select>
 </mapper>
